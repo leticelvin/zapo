@@ -36,6 +36,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+   
+   
+    /* background-color: rgba(241, 134, 11, 1); */
     background-color: rgba(241, 134, 11, 0.911);
     /* overflow-x: hidden; */
     padding-top: 20px;
@@ -64,6 +67,11 @@ body {
   .button1{
     position: absolute;
     z-index: 2;
+  }
+  #pictures{
+    height: 50px;
+    width: 50px;
+    
   }
   .main {
     margin-left: 160px; 

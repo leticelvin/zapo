@@ -12,9 +12,15 @@ document.body.appendChild(bar);
 bar.className= 'sidenav'
 //-----------------------
 let content = document.createElement('h3'); // create header images
-content.textContent='Images'
+content.textContent='Images';
 document.body.appendChild(content);
-content.className='images'
+content.className='images';
+
+// let picture = document.getElementById('pictures');
+// let cow = document.createElement('img')
+// cow.src='https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg'
+// picture.appendChild(cow)
+
 
 //-------------------------------
 let list = document.createElement('ul') // create list
@@ -44,10 +50,9 @@ let body = document.body;
 btn.addEventListener('click',changesText);
 
 function changesText(event) {
-  
    content.textContent='New images'
-  
 }
+//---------------------------------
 
 
 
