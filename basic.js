@@ -12,6 +12,8 @@ document.body.appendChild(bar);
 bar.className= 'sidenav'
 //-----------------------
 let content = document.createElement('h3'); // create header images
+content.id = "demo";
+
 content.textContent='Images'
 document.body.appendChild(content);
 content.className='images'
@@ -25,6 +27,16 @@ let listLinkOne = document.createElement('li') // list items, New Image
 listLinkOne.textContent="New image"; 
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
+listLinkOne.addEventListener("click", myFunction);
+
+var paragraph = document.createElement("p"); 
+document.body.appendChild(paragraph);
+
+
+function myFunction() {
+   console.log("hej");
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
 
 let listLinkTwo = document.createElement('li') // list items, Images
 listLinkTwo.textContent="Images";
