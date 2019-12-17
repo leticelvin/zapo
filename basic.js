@@ -27,15 +27,10 @@ let listLinkOne = document.createElement('li') // list items, New Image
 listLinkOne.textContent="New image"; 
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
-listLinkOne.addEventListener("click", myFunction);
+listLinkOne.addEventListener("click", newImagePage); // make text clickable and calls function
 
-var paragraph = document.createElement("p"); 
-document.body.appendChild(paragraph);
-
-
-function myFunction() {
-   console.log("hej");
-  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+function newImagePage() { // opens a "new Image" content page/screen
+  document.getElementById("demo").innerHTML = "New Image";
 }
 
 let listLinkTwo = document.createElement('li') // list items, Images
@@ -43,11 +38,23 @@ listLinkTwo.textContent="Images";
 list.appendChild(listLinkTwo);
 listLinkTwo.style.padding='20px';
 listLinkTwo.style.margin='10px';
+listLinkTwo.addEventListener("click", imagesPage); // make text clickable and calls function
+
+function imagesPage() { // opens a new "Image" content page/screen
+  document.getElementById("demo").innerHTML = "Images";
+}
 
 let listLinkThree = document.createElement('li') // list items, Galleries
 listLinkThree.textContent="Galleries"
 list.appendChild(listLinkThree);
 listLinkThree.style.padding='20px';
+listLinkThree.addEventListener("click", galleriesPage); // make text clickable and calls function
+
+function galleriesPage() { // opens a new "galleries" content page/screen
+  document.getElementById("demo").innerHTML = "Galleries";
+}
+
+
 //--------------------------------
 // changes h3 heading with button click,, Temporary!!!!
 let btn = document.getElementsByTagName('button')[0];
@@ -60,6 +67,26 @@ function changesText(event) {
    content.textContent='New images'
   
 }
+
+
+
+//funktion för en sida
+
+
+
+
+
+
+//funktion för en annan sida
+
+
+
+
+//funktion för tredje sidan
+
+
+
+//eventlyssnare för knapparna
 
 
 
