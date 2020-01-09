@@ -120,6 +120,21 @@ inputbutton.addEventListener("click", function() {});
 
 }
 
+//create an empty array
+var imgObj = [];
+
+function arrList(e){ // create function with an event
+e.preventDefault(); // prevents the page from reloading when clicking on submit
+var values = document.getElementById('urlinput'.value); //get input field value
+imgObj.push('urlinput'.value);// push the input value to the empty array (imgObj)
+console.log(imgObj); // Console log the empty array to see if it works
+}
+
+var submitButton = document.getElementById('submitbutton'); //get submitbutton
+var submitForm = document.getElementById('myForm'); // get form
+submitButton.addEventListener('click', arrList, false); // when clicking on submit, the arrList function should fire
+© 2020 GitHub, Inc.
+
 
 //Add description metadata to image
 var description = document.createElement('input');
