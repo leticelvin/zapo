@@ -1,3 +1,5 @@
+//Contains the Add metadata and Display metadata
+
 let header1 = document.createElement('header'); // create header
 document.body.appendChild(header1);
 header1.className='header'
@@ -119,6 +121,56 @@ inputbutton.addEventListener("click", function() {});
 }
 
 
+//Add description metadata to image
+var description = document.createElement('input');
+description.type = "text";
+description.id="descriptioninput";
+description.placeholder="Write description here";
+document.getElementById("myForm").appendChild(description);
+
+//button for submitting description
+var descriptionbutton = document.createElement("button");
+descriptionbutton.id = "descriptionsubmit";
+descriptionbutton.innerText="Add description";
+document.getElementById("myForm").appendChild(descriptionbutton);
+document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());
+
+var imagetitle = document.getElementById("titleinput").value;
+var imagedescription = document.getElementById("descriptioninput").value;
+
+
+//Add title metadata to image
+var title = document.createElement('input');
+title.type = "text";
+title.id="titleinput";
+title.placeholder="Write image name here";
+document.body.appendChild(title);
+
+//button for submitting title
+var titlebutton = document.createElement("button");
+titlebutton.id="titlesubmit";
+titlebutton.innerText="Add title";
+document.body.appendChild(titlebutton);
+document.getElementById("titlesubmit").addEventListener("click", nameoftheimage());
+
+
+//Displaymetadata.js
+//Display image metadata in the same card where the images are located
+function nameoftheimage() {
+  var nameparagraph = document.createElement('p');
+  nameparagraph.id = "imagename";
+  nameparagraph.innerText = imagename;
+  //.appendChild(nameparagraph);
+  };
+  
+  function descriptionfortheimage() {
+  var descriptionparagraph = document.createElement('p');
+  descriptionparagraph.id = "imagedescription";
+  descriptionparagraph.innerText = imagedescription;
+  var imageslocation = document.querySelector(images);
+  imageslocation.appendChild(nameparagraph);
+  };
+
 
 // login button
 function loginBtn(){
@@ -189,19 +241,3 @@ function loginBtn(){
   
    loginBtn();
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
