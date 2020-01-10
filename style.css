@@ -103,12 +103,18 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-left: 30px;
 }
 
+#submitbutton {
+  margin-left: 15px;
+}
+
 #descriptionsubmit {
   margin-top: 40px;
+  margin-left: 15px;
 }
 
 #descriptioninput {
   margin-top: 40px;
+  margin-left: 30px;
 }
 
 /******************************login form*****************************/
