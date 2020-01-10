@@ -118,6 +118,21 @@ inputbutton.value = "submit";
 document.getElementById("myForm").appendChild(inputbutton);  
 inputbutton.addEventListener("click", function() {});
 
+//Add description metadata to image
+var description = document.createElement('input');
+description.type = "text";
+description.id="descriptioninput";
+description.placeholder="Write description here";
+document.getElementById("myForm").appendChild(description);
+
+//button for submitting description
+var descriptionbutton = document.createElement("button");
+descriptionbutton.id = "descriptionsubmit";
+descriptionbutton.innerText="Add description";
+document.getElementById("myForm").appendChild(descriptionbutton);
+document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());
+  
+  
 }
 
 //create an empty array
@@ -133,22 +148,7 @@ console.log(imgObj); // Console log the empty array to see if it works
 var submitButton = document.getElementById('submitbutton'); //get submitbutton
 var submitForm = document.getElementById('myForm'); // get form
 submitButton.addEventListener('click', arrList, false); // when clicking on submit, the arrList function should fire
-© 2020 GitHub, Inc.
 
-
-//Add description metadata to image
-var description = document.createElement('input');
-description.type = "text";
-description.id="descriptioninput";
-description.placeholder="Write description here";
-document.getElementById("myForm").appendChild(description);
-
-//button for submitting description
-var descriptionbutton = document.createElement("button");
-descriptionbutton.id = "descriptionsubmit";
-descriptionbutton.innerText="Add description";
-document.getElementById("myForm").appendChild(descriptionbutton);
-document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());
 
 var imagetitle = document.getElementById("titleinput").value;
 var imagedescription = document.getElementById("descriptioninput").value;
