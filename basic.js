@@ -1,3 +1,5 @@
+var imagetitle, imagedescription, descriptionbutton, description;
+
 //Contains the Add metadata and Display metadata
 
 let header1 = document.createElement('header'); // create header
@@ -89,84 +91,78 @@ function galleriesPage() { // opens a new "galleries" content page/screen
 
 function submitForm(){
 
-//Create the form
-var form = document.createElement('form');
-form.id="myForm";
-form.action="results.html";
-form.method="GET";
-document.body.appendChild(form);
+  //Create the form
+  var form = document.createElement('form');
+  form.id="myForm";
+  form.action="";
+  form.method="GET";
+  document.body.appendChild(form);
 
-//Create the div 
-var div1 = document.createElement("div");
-div1.id="aDiv"; 
-document.body.appendChild(div1);
+  //Place the input field 
+  var input = document.createElement("input");
+  input.type = "url";
+  input.id = "urlinput";
+  input.placeholder = "Enter URL Here";
+  input.value = "";
+  document.getElementById("myForm").appendChild(input);
+  var url = document.getElementById("urlinput").value;
 
-//Place the input field 
-var input = document.createElement("input");
-input.type = "url";
-input.id = "urlinput";
-input.placeholder = "Enter URL Here";
-input.value = "";
-document.getElementById("myForm").appendChild(input);
-var url = document.getElementById("urlinput").value;
+  //Add submit button 
+  var inputbutton = document.createElement("input");
+  inputbutton.id = "submitbutton";
+  inputbutton.type = "submit";
+  inputbutton.value = "Submit";
+  document.getElementById("myForm").appendChild(inputbutton);  
+  inputbutton.addEventListener("click", function() {});
 
-//Add submit button 
-var inputbutton = document.createElement("input");
-inputbutton.id = "submitbutton";
-inputbutton.type = "submit";
-inputbutton.value = "submit";
-document.getElementById("myForm").appendChild(inputbutton);  
-inputbutton.addEventListener("click", function() {});
+  //Input field for the name
+  var name = document.createElement('input');
+  name.type = "text";
+  name.id = "nameinput";
+  name.placeholder = "Write name here";
+  name.value = "";
+  document.getElementById("myForm").appendChild(name);
 
-//Add description metadata to image
-var description = document.createElement('input');
-description.type = "text";
-description.id="descriptioninput";
-description.placeholder="Write description here";
-document.getElementById("myForm").appendChild(description);
+  //button for submitting description.
+  var namebutton = document.createElement("button");
+  namebutton.id = "namesubmit";
+  namebutton.innerText="Add name";
+  document.getElementById("myForm").appendChild(namebutton);
+  document.getElementById("namesubmit").addEventListener("click", descriptionfortheimage());
 
-//button for submitting description
-var descriptionbutton = document.createElement("button");
-descriptionbutton.id = "descriptionsubmit";
-descriptionbutton.innerText="Add description";
-document.getElementById("myForm").appendChild(descriptionbutton);
-document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());
-  
-  
+  //Add description metadata to image.
+  var description = document.createElement('input');
+  description.type = "text";
+  description.id="descriptioninput";
+  description.value = "";
+  description.placeholder="Write description here";
+  document.getElementById("myForm").appendChild(description);
+
+  var descriptionsubmitbutton = document.createElement("button");
+  descriptionsubmitbutton.id = "adddescription";
+  descriptionsubmitbutton.innerText = "Add description";
+  document.getElementById("myForm").appendChild(descriptionsubmitbutton);
+
+  imagetitle = document.getElementById("nameinput").value;
+  imagedescription = document.getElementById("descriptioninput").value;
+
 }
 
-//create an empty array
-var imgObj = [];
-
-function arrList(e){ // create function with an event
-e.preventDefault(); // prevents the page from reloading when clicking on submit
-var values = document.getElementById('urlinput'.value); //get input field value
-imgObj.push('urlinput'.value);// push the input value to the empty array (imgObj)
-console.log(imgObj); // Console log the empty array to see if it works
-}
-
-var submitButton = document.getElementById('submitbutton'); //get submitbutton
-var submitForm = document.getElementById('myForm'); // get form
-submitButton.addEventListener('click', arrList, false); // when clicking on submit, the arrList function should fire
-
-
-var imagetitle = document.getElementById("titleinput").value;
-var imagedescription = document.getElementById("descriptioninput").value;
 
 
 //Add title metadata to image
-var title = document.createElement('input');
+/*var title = document.createElement('input');
 title.type = "text";
 title.id="titleinput";
 title.placeholder="Write image name here";
-document.body.appendChild(title);
+document.getElementById("myForm").appendChild(title);
 
 //button for submitting title
 var titlebutton = document.createElement("button");
 titlebutton.id="titlesubmit";
 titlebutton.innerText="Add title";
 document.body.appendChild(titlebutton);
-document.getElementById("titlesubmit").addEventListener("click", nameoftheimage());
+document.getElementById("titlesubmit").addEventListener("click", nameoftheimage());*/
 
 
 //Displaymetadata.js
@@ -174,7 +170,7 @@ document.getElementById("titlesubmit").addEventListener("click", nameoftheimage(
 function nameoftheimage() {
   var nameparagraph = document.createElement('p');
   nameparagraph.id = "imagename";
-  nameparagraph.innerText = imagename;
+  nameparagraph.innerText = imagetitle;
   //.appendChild(nameparagraph);
   };
   
