@@ -1,4 +1,4 @@
-var imagetitle, imagedescription, descriptionbutton, description;
+var imagetitle, imagedescription;
 
 //Contains the Add metadata and Display metadata
 
@@ -113,7 +113,7 @@ function submitForm(){
   inputbutton.type = "submit";
   inputbutton.value = "Submit";
   document.getElementById("myForm").appendChild(inputbutton);  
-  inputbutton.addEventListener("click", function() {});
+  inputbutton.addEventListener("click", function() {}); //Do not delete function(). It will remove all the orange stuff on the site.
 
   //Input field for the name
   var name = document.createElement('input');
@@ -123,46 +123,25 @@ function submitForm(){
   name.value = "";
   document.getElementById("myForm").appendChild(name);
 
-  //button for submitting description.
-  var namebutton = document.createElement("button");
-  namebutton.id = "namesubmit";
-  namebutton.innerText="Add name";
-  document.getElementById("myForm").appendChild(namebutton);
-  document.getElementById("namesubmit").addEventListener("click", descriptionfortheimage());
 
   //Add description metadata to image.
   var description = document.createElement('input');
   description.type = "text";
   description.id="descriptioninput";
-  description.value = "";
-  description.placeholder="Write description here";
+  description.placeholder="Write description here"
   document.getElementById("myForm").appendChild(description);
 
-  var descriptionsubmitbutton = document.createElement("button");
-  descriptionsubmitbutton.id = "adddescription";
-  descriptionsubmitbutton.innerText = "Add description";
-  document.getElementById("myForm").appendChild(descriptionsubmitbutton);
+  /*button for submitting description. THIS CODE WAS THE PROBLEM THAT PREVENTED THE DESCRIPTION INPUT FIELD FROM SHOWING UP.
+  var descriptionbutton = document.createElement("button");
+  descriptionbutton.id = "descriptionsubmit";
+  descriptionbutton.innerText="Add metadata";
+  document.getElementById("myForm").appendChild(descriptionbutton);
+  document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());*/
 
   imagetitle = document.getElementById("nameinput").value;
   imagedescription = document.getElementById("descriptioninput").value;
-
 }
 
-
-
-//Add title metadata to image
-/*var title = document.createElement('input');
-title.type = "text";
-title.id="titleinput";
-title.placeholder="Write image name here";
-document.getElementById("myForm").appendChild(title);
-
-//button for submitting title
-var titlebutton = document.createElement("button");
-titlebutton.id="titlesubmit";
-titlebutton.innerText="Add title";
-document.body.appendChild(titlebutton);
-document.getElementById("titlesubmit").addEventListener("click", nameoftheimage());*/
 
 
 //Displaymetadata.js
