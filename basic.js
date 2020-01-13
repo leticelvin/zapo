@@ -1,4 +1,4 @@
-var imagetitle, imagedescription;
+var imagetitle, imagedescription, url;
 
 //Contains the Add metadata and Display metadata
 
@@ -28,17 +28,13 @@ document.body.appendChild(list);
 list.className='sidenavLinks';
 //---------------------------------------
 let listLinkOne = document.createElement('li') // list items, New Image
-listLinkOne.textContent="New image"; 
+listLinkOne.textContent="New image";
+listLinkOne.id="newimageli"; 
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
-listLinkOne.addEventListener("click", newImagePage); // make text clickable and calls function
-
-function newImagePage() { // opens a "new Image" content page/screen
-  document.getElementById("demo").innerHTML = "New Image";
- submitForm (); // annropar formuläret
- onclick();
- 
-}
+listLinkOne.addEventListener("click", submitForm); // make text clickable and calls function
+listLinkOne.addEventListener("click", newImagePage);
+listLinkOne.addEventListener("click", preventRepetition);
 
 let listLinkTwo = document.createElement('li') // list items, Images
 listLinkTwo.textContent="Images";
@@ -47,14 +43,13 @@ listLinkTwo.style.padding='20px';
 listLinkTwo.style.margin='10px';
 listLinkTwo.addEventListener("click", imagesPage); // make text clickable and calls function
 
-function imagesPage() { // opens a new "Image" content page/screen
-  document.getElementById("demo").innerHTML = "Images";
+
   
  /**
   * @description contains img, cow
   * @returns image is displayed on click
   */
-  function imageContainer(e) {     
+function imageContainer(e) {     
     
     var cow = document.createElement('img'); 
     cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg') 
@@ -64,13 +59,11 @@ function imagesPage() { // opens a new "Image" content page/screen
     listLinkOne.addEventListener('click',onclick);//remove image on click
     
     function onclick(event){
+    cow.removeAttribute('src')
+}
     
-      cow.removeAttribute('src')
-    }
-    
-    }
-    
-    imageContainer();
+
+imageContainer();
    
 }
 
@@ -79,13 +72,6 @@ listLinkThree.textContent="Galleries"
 list.appendChild(listLinkThree);
 listLinkThree.style.padding='20px';
 listLinkThree.addEventListener("click", galleriesPage); // make text clickable and calls function
-
-function galleriesPage() { // opens a new "galleries" content page/screen
-  document.getElementById("demo").innerHTML = "Galleries";
-  
-
-  
-}
 
 
 
@@ -113,7 +99,7 @@ function submitForm(){
   inputbutton.type = "submit";
   inputbutton.value = "Submit";
   document.getElementById("myForm").appendChild(inputbutton);  
-  inputbutton.addEventListener("click", function() {}); //Do not delete function(). It will remove all the orange stuff on the site.
+  inputbutton.addEventListener("click", addmetadata, function() {}); //deleting function() will remove all the orange stuff on the site.
 
   //Input field for the name
   var name = document.createElement('input');
@@ -131,13 +117,7 @@ function submitForm(){
   description.placeholder="Write description here"
   document.getElementById("myForm").appendChild(description);
 
-  /*button for submitting description. THIS CODE WAS THE PROBLEM THAT PREVENTED THE DESCRIPTION INPUT FIELD FROM SHOWING UP.
-  var descriptionbutton = document.createElement("button");
-  descriptionbutton.id = "descriptionsubmit";
-  descriptionbutton.innerText="Add metadata";
-  document.getElementById("myForm").appendChild(descriptionbutton);
-  document.getElementById("descriptionsubmit").addEventListener("click", descriptionfortheimage());*/
-
+  
   imagetitle = document.getElementById("nameinput").value;
   imagedescription = document.getElementById("descriptioninput").value;
 }
@@ -146,20 +126,19 @@ function submitForm(){
 
 //Displaymetadata.js
 //Display image metadata in the same card where the images are located
-function nameoftheimage() {
+  
+function addmetadata() {
+
   var nameparagraph = document.createElement('p');
   nameparagraph.id = "imagename";
   nameparagraph.innerText = imagetitle;
-  //.appendChild(nameparagraph);
-  };
-  
-  function descriptionfortheimage() {
+
   var descriptionparagraph = document.createElement('p');
   descriptionparagraph.id = "imagedescription";
   descriptionparagraph.innerText = imagedescription;
-  var imageslocation = document.querySelector(images);
+  var imageslocation = document.getElementsByClassName("img1");
   imageslocation.appendChild(nameparagraph);
-  };
+};
 
 
 // login button
@@ -170,22 +149,23 @@ function loginBtn(){
   logInButton.id="loginbutton"
   document.body.appendChild(logInButton);
   logInButton.addEventListener('click', login, false)
-  
+  logInButton.addEventListener('click', loginPage);  
 
   /**
    * @description shows the login form
    *  
    */
-  function login(e){
+
+function login(e){
     
-    var loginDiv = document.createElement('div');
+  var loginDiv = document.createElement('div');
     
-    var logInForm = document.createElement('form');
-    logInForm.id="loginform";
-    logInForm.method='Get';
+  var logInForm = document.createElement('form');
+  logInForm.id="loginform";
+  logInForm.method='Get';
     
-    // input field email
-    var emailInput = document.createElement('input');
+  // input field email
+  var emailInput = document.createElement('input');
     emailInput.id='email';
     emailInput.setAttribute("type", "email");
     emailInput.placeholder='E-mail';
@@ -227,7 +207,30 @@ function loginBtn(){
     
     }
     
-  }
+}
+
+
+loginBtn();
+
+function imagesPage() { // opens a new "Image" content page/screen
+  document.getElementById("demo").innerHTML = "Images";
+}
+
+function newImagePage() { // opens a "new Image" content page/screen
+  document.getElementById("demo").innerHTML = "New Image";
+}
+
+function galleriesPage() { // opens a new "galleries" content page/screen
+  document.getElementById("demo").innerHTML = "Galleries";
+}
   
-   loginBtn();
-  
+function loginPage() {  // opens a new "login" content page/screen
+  document.getElementById("demo").innerHTML = "Login";
+}
+
+function preventRepetition() {
+  document.getElementById("newimageli").removeEventListener('click', newImagePage);
+  document.getElementById("newimageli").removeEventListener('click', submitForm);
+}
+
+
